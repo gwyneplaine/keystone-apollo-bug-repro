@@ -4,11 +4,6 @@ import { select } from "@keystone-next/fields";
 
 export const lists = createSchema({
   Task: list({
-    ui: {
-      listView: {
-        initialColumns: ["assignedTo"],
-      },
-    },
     fields: {
       label: text({ isRequired: true }),
       priority: select({
@@ -25,11 +20,6 @@ export const lists = createSchema({
     },
   }),
   Person: list({
-    ui: {
-      listView: {
-        initialColumns: ["name"],
-      },
-    },
     fields: {
       name: text({ isRequired: true }),
       tasks: relationship({ ref: "Task.assignedTo", many: true }),
